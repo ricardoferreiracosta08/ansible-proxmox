@@ -1,0 +1,38 @@
+---
+
+- name: create container on proxmox host
+  proxmox:
+    vmid: "{{ proxmox_vmid }}"
+    node: "{{ proxmox_host }}"
+    api_user: "{{ proxmox_api_user }}"
+    api_password: "{{ proxmox_api_password }}"
+    api_host: "{{ proxmox_host }}"
+    password: "{{ proxmox_password_root }}"
+    hostname: "{{ proxmox_hostname }}"
+    ostemplate: "{{ proxmox_ostemplate }}"
+    storage: "{{ proxmox_storage|default('local-zfs') }}"
+    unprivileged: "{{ proxmox_enable_docker|default(false) }}"
+    onboot: "{{ proxmox_onboot|default(True) }}"
+    memory: "{{ proxmox_memory }}"
+    disk: "{{ proxmox_disk }}"
+    cores: "{{ proxmox_cores }}"
+    cpus: "{{ proxmox_cpus }}"
+    netif: '{"net0":"name=eth0,hwaddr={{ "52:54:00" | random_mac }},ip={{ proxmox_ip }}/32,gw={{ proxmox_network_gateway }},bridge=vmbr0"}'
+    mounts: "{{ proxmox_secondary_mounts|default('{}') }}"
+    pubkey: "{{ proxmox_authorized_keys_root }}"
+    timeout: 180
+  no_log: true  # secret passwords
+  notify:
+  - enable and install sshd
+  - enable features for Docker in container
+  - wait for container to be up
+
+- name: start container
+  proxmox:
+    vmid: "{{ proxmox_vmid }}"
+    api_user: "{{ proxmox_api_user }}"
+    api_password: "{{ proxmox_api_password }}"
+    api_host: "{{ proxmox_host }}"
+    state: started
+    timeout: 90
+  no_log: true  # secret passwords

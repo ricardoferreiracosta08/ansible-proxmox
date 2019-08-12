@@ -1,0 +1,10 @@
+---
+language: python
+
+install:
+  - pip install molecule
+
+script:
+  - ansible --version
+  - ansible-lint .
+  - yamllint .

@@ -1,0 +1,59 @@
+---
+
+# REQUIRED Settings -------------------------------------------------------------------------------
+
+# REQUIRED: hostname running
+# proxmox_host:
+
+# REQUIRED: API user for connecting to host
+# proxmox_api_user:
+
+# REQUIRED: password of API user
+# proxmox_api_password:
+
+# REQUIRED: define numeric ID
+# proxmox_vmid: 123
+
+# REQUIRED: IP to use for proxmox VM/CT
+# proxmox_ip:
+
+# REQUIRED: gateway to use for VM/CT setup
+# proxmox_network_gateway:
+
+# REQUIRED: template to use for provisioning
+# proxmox_ostemplate:
+
+# REQUIRED: The authorized keys to add for the root user.
+# proxmox_authorized_keys_root:
+
+# REQUIRED: The password to set for the root user.
+# proxmox_password_root:
+
+# Important Settings (you might want to override these) -------------------------------------------
+
+# Main memory in MB.
+proxmox_memory: 2048
+
+# Disk space/quota in GB.
+proxmox_disk: 64
+
+# Cores to allocate.
+proxmox_cores: 1
+
+# CPUs to allocate.
+proxmox_cpus: 1
+
+# Whether or not to allow for running Docker inside container (requires priviledged container
+# if CT).
+proxmox_enable_docker: false
+
+# Other Settings (the defaults are sensible for most cases) ---------------------------------------
+
+# Storage system to use
+proxmox_storage: local-zfs
+
+# Whether to start CT/VM on host boot.
+proxmox_onboot: true
+
+# Any secondary mounts.
+proxmox_secondary_mounts: {}
