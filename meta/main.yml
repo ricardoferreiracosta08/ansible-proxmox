@@ -1,14 +1,14 @@
 ---
 
 galaxy_info:
-  role_name: bihealth.provision-proxmox
+  role_name: provision_proxmox
   author: Manuel Holtgrewe
   description: Provisioning of Proxmox virtual machine and container hosts.
   company: Core Unit Bioinformatics (CUBI), Berlin Institute of Health (BIH)
   license: MIT
   min_ansible_version: 2.8
   platforms:
-    - name: CentOS
+    - name: EL
       versions:
         - 7
     - name: Fedora
