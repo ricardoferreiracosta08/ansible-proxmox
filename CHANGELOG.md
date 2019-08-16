@@ -1,5 +1,9 @@
 # Changelog
 
+## v0.1.2
+
+- Fixing Ansible shell command.
+
 ## v0.1.1
 
 - Fixing role name.

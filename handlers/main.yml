@@ -13,6 +13,8 @@
       echo "sleep 10s && yum install -y openssh-server" | pct exec {{ proxmox_vmid }} /bin/bash
     fi
     echo "sleep 10s && systemctl start sshd" | pct exec {{ proxmox_vmid }} /bin/bash
+  args:
+    executable: /bin/bash
 
 - name: enable features for Docker in container
   delegate_to: "{{ proxmox_host }}"

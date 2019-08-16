@@ -23,9 +23,9 @@
     timeout: 180
   no_log: true  # secret passwords
   notify:
-  - enable and install sshd
-  - enable features for Docker in container
-  - wait for container to be up
+    - enable and install sshd
+    - enable features for Docker in container
+    - wait for container to be up
 
 - name: start container
   proxmox:
