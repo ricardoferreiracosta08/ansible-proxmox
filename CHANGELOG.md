@@ -1,5 +1,9 @@
 # Changelog
 
+## HEAD (unreleased)
+
+- Fixing setup of Debian and Ubuntu images.
+
 ## v0.1.2
 
 - Fixing Ansible shell command.

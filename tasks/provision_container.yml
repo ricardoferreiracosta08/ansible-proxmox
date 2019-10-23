@@ -21,7 +21,7 @@
     mounts: "{{ proxmox_secondary_mounts|default('{}') }}"
     pubkey: "{{ proxmox_authorized_keys_root }}"
     timeout: 180
-  no_log: true  # secret passwords
+  # no_log: true  # secret passwords
   notify:
     - enable and install sshd
     - enable features for Docker in container
