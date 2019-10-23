@@ -3,6 +3,7 @@
 ## HEAD (unreleased)
 
 - Fixing setup of Debian and Ubuntu images.
+- Making sure Python is installed on Debian/Ubuntu containers.
 
 ## v0.1.2
 

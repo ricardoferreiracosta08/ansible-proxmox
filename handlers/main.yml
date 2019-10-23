@@ -5,9 +5,10 @@
   remote_user: root
   shell: |
     set -euo pipefail
-    if [[ "{{ proxmox_ostemplate }}" = *debian* ]] || [[ "{{ proxmox_ostemplate }}" = *ubuntu* ]]; then
+    if [ "{{ proxmox_ostemplate }}" = *debian* ] || [ "{{ proxmox_ostemplate }}" = *ubuntu* ]; then
       echo "sleep 10s && apt-get install -y openssh-server" | pct exec {{ proxmox_vmid }} /bin/bash
       echo "perl -p -i -e 's/# en_US.UTF-8 UTF-8/en_US.UTF-8 UTF-8/' /etc/locale.gen && dpkg-reconfigure locales" | pct exec {{ proxmox_vmid }} /bin/bash
+      echo "apt-get install -y python" | pct exec {{ proxmox_vmid }} /bin/bash
     else
       echo "echo LANG=en_US.UTF-8 >>/etc/locale.conf" | pct exec {{ proxmox_vmid }} /bin/bash
       echo "sleep 10s && yum install -y openssh-server" | pct exec {{ proxmox_vmid }} /bin/bash
