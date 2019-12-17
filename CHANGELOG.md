@@ -1,7 +1,8 @@
 # Changelog
 
-## HEAD (unreleased)
+## v0.2.0
 
+- Setting for IP mask.
 - Fixing setup of Debian and Ubuntu images.
 - Making sure Python is installed on Debian/Ubuntu containers.
 
