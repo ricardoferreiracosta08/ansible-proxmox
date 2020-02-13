@@ -57,3 +57,9 @@ proxmox_onboot: true
 
 # Any secondary mounts.
 proxmox_secondary_mounts: {}
+
+# The bridge to use for containers.
+proxmox_network_bridge: vmbr0
+
+# How long to sleep before first pct exec command.
+proxmox_container_sleep: 60s

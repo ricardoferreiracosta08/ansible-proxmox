@@ -1,5 +1,10 @@
 # Changelog
 
+## HEAD (unreleased)
+
+- Allow setting of bridge interface.
+- Make the sleep time configurable.
+
 ## v0.2.0
 
 - Setting for IP mask.

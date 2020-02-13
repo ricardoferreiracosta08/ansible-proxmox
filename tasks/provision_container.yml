@@ -3,7 +3,7 @@
 - name: create container on proxmox host
   proxmox:
     vmid: "{{ proxmox_vmid }}"
-    node: "{{ proxmox_host }}"
+    node: "{{ proxmox_node }}"
     api_user: "{{ proxmox_api_user }}"
     api_password: "{{ proxmox_api_password }}"
     api_host: "{{ proxmox_host }}"
@@ -17,11 +17,10 @@
     disk: "{{ proxmox_disk }}"
     cores: "{{ proxmox_cores }}"
     cpus: "{{ proxmox_cpus }}"
-    netif: '{"net0":"name=eth0,hwaddr={{ "52:54:00" | random_mac }},ip={{ proxmox_ip }}/{{ proxmox_ip_mask }},gw={{ proxmox_network_gateway }},bridge=vmbr0"}'
+    netif: '{"net0":"name=eth0,hwaddr={{ "52:54:00" | random_mac }},ip={{ proxmox_ip }}/{{ proxmox_ip_mask }},gw={{ proxmox_network_gateway }},bridge={{ proxmox_network_bridge }}"}'
     mounts: "{{ proxmox_secondary_mounts|default('{}') }}"
     pubkey: "{{ proxmox_authorized_keys_root }}"
     timeout: 180
-  # no_log: true  # secret passwords
   notify:
     - enable and install sshd
     - enable features for Docker in container
@@ -35,4 +34,3 @@
     api_host: "{{ proxmox_host }}"
     state: started
     timeout: 90
-  no_log: true  # secret passwords
