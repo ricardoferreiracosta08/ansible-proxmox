@@ -1,6 +1,6 @@
 # Changelog
 
-## HEAD (unreleased)
+## v0.2.1
 
 - Allow setting of bridge interface.
 - Make the sleep time configurable.
