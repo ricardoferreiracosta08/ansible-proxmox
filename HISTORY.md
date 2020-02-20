@@ -1,5 +1,9 @@
 # Changelog
 
+## v0.2.3
+
+- Fixing bug with MAC address.
+
 ## v0.2.2
 
 - Allow configuration of MAC address.
