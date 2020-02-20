@@ -17,7 +17,7 @@
     disk: "{{ proxmox_disk }}"
     cores: "{{ proxmox_cores }}"
     cpus: "{{ proxmox_cpus }}"
-    netif: '{"net0":"name=eth0,hwaddr={{ "52:54:00" | random_mac }},ip={{ proxmox_ip }}/{{ proxmox_ip_mask }},gw={{ proxmox_network_gateway }},bridge={{ proxmox_network_bridge }}"}'
+    netif: '{"net0":"name=eth0,hwaddr={{ proxmox_hwaddr }},ip={{ proxmox_ip }}/{{ proxmox_ip_mask }},gw={{ proxmox_network_gateway }},bridge={{ proxmox_network_bridge }}"}'
     mounts: "{{ proxmox_secondary_mounts|default('{}') }}"
     pubkey: "{{ proxmox_authorized_keys_root }}"
     timeout: 180

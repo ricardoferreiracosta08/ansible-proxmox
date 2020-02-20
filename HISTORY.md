@@ -1,5 +1,9 @@
 # Changelog
 
+## v0.2.2
+
+- Allow configuration of MAC address.
+
 ## v0.2.1
 
 - Allow setting of bridge interface.

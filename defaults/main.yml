@@ -49,6 +49,9 @@ proxmox_enable_docker: false
 
 # Other Settings (the defaults are sensible for most cases) ---------------------------------------
 
+# MAC address of proxmox network.
+proxmox_hwaddr: "{{ "52:54:00" | random_mac }}"
+
 # Storage system to use
 proxmox_storage: local-zfs
 
