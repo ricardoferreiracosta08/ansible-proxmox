@@ -5,6 +5,9 @@
   remote_user: root
   shell: |
     set -euo pipefail
+    if [[ "{{ proxmox_container_custom_script | quote }}" != "''" ]]; then
+      echo {{ proxmox_container_custom_script | quote }} | pct exec {{ proxmox_vmid }} /bin/bash
+    fi
     if [[ "{{ proxmox_ostemplate }}" = *debian* ]] || [[ "{{ proxmox_ostemplate }}" = *ubuntu* ]]; then
       echo "sleep {{ proxmox_container_sleep }} && apt-get install -y openssh-server" | pct exec {{ proxmox_vmid }} /bin/bash
       echo "perl -p -i -e 's/# en_US.UTF-8 UTF-8/en_US.UTF-8 UTF-8/' /etc/locale.gen && dpkg-reconfigure locales" | pct exec {{ proxmox_vmid }} /bin/bash

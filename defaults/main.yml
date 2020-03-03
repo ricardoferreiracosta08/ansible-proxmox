@@ -47,6 +47,9 @@ proxmox_cpus: 1
 # if CT).
 proxmox_enable_docker: false
 
+# Custom bash script to execute in container, e.g., for proxy setup.
+proxmox_container_custom_script: ""
+
 # Other Settings (the defaults are sensible for most cases) ---------------------------------------
 
 # MAC address of proxmox network.

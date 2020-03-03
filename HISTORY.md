@@ -1,5 +1,9 @@
 # Changelog
 
+## v0.2.4
+
+- Adding `proxmox_container_custom_script` option.
+
 ## v0.2.3
 
 - Fixing bug with MAC address.
