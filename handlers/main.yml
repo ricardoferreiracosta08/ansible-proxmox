@@ -34,9 +34,16 @@
     api_host: "{{ proxmox_host }}"
     state: restarted
     timeout: 90
-  no_log: true  # secret passwords
+  # no_log: true  # secret passwords
 
 - name: wait for container to be up
   wait_for:
     delay: 10
     timeout: 60
+
+- name: upgrade all packages to latest
+  delegate_to: "{{ proxmox_ip|default(ansible_host) }}"
+  yum:
+    name: '*'
+    state: latest
+    update_cache: true

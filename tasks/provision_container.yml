@@ -25,6 +25,7 @@
     - enable and install sshd
     - enable features for Docker in container
     - wait for container to be up
+    - upgrade all packages to latest
 
 - name: start container
   proxmox:
@@ -34,3 +35,10 @@
     api_host: "{{ proxmox_host }}"
     state: started
     timeout: 90
+
+# - name: upgrade all packages to latest
+#   delegate_to: "{{ proxmox_ip|default(ansible_host) }}"
+#   yum:
+#     name: '*'
+#     state: latest
+#     update_cache: true

@@ -1,6 +1,4 @@
 ---
 
-- name: provision container
+- name: include KVM provisioning tasks
   include_tasks: provision_{{ proxmox_type }}.yml
-
-# TODO: VM provisioning

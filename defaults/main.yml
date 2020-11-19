@@ -35,7 +35,7 @@
 proxmox_memory: 2048
 
 # Disk space/quota in GB.
-proxmox_disk: 64
+proxmox_disk: "64"
 
 # Cores to allocate.
 proxmox_cores: 1

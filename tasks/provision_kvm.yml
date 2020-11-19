@@ -1,0 +1,27 @@
+- name: create proxmox virtual machine
+  proxmox_kvm:
+    vmid: "{{ proxmox_vmid }}"
+    node: "{{ proxmox_node }}"
+    api_user: "{{ proxmox_api_user }}"
+    api_password: "{{ proxmox_api_password }}"
+    api_host: "{{ proxmox_host }}"
+    name: "{{ inventory_hostname }}"
+    net: "{{ proxmox_network }}"
+    storage: "{{ proxmox_storage }}"
+    autostart: "{{ proxmox_autostart }}"
+    cores: "{{ proxmox_cores }}"
+    sockets: "{{ proxmox_sockets }}"
+    memory: "{{ proxmox_memory }}"
+    scsihw: virtio-scsi-pci
+    scsi: >
+        {"virtio0":"{{ proxmox_storage }}:{{ proxmox_disk_size }},iothread=1"}
+    state: present
+
+- name: start proxmox virtual machine
+  proxmox_kvm:
+    vmid: "{{ proxmox_vmid }}"
+    state: started
+    api_user: "{{ proxmox_api_user }}"
+    api_password: "{{ proxmox_api_password }}"
+    api_host: "{{ proxmox_host }}"
+  notify: upgrade all packages to latest
