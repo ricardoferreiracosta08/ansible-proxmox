@@ -1,5 +1,9 @@
 # Changelog
 
+## v0.3.0
+
+- Provisioning of KVM with proxmox.
+
 ## v0.2.4
 
 - Adding `proxmox_container_custom_script` option.
