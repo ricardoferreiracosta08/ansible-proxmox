@@ -44,4 +44,5 @@ ansible-playbook -i inventory play.yml
 # NOTES
 
 - Change the vars on defaults/main.yml according to your environment 
-- dont forget to change the var {{ proxmox_type }} to either container or kvm
+- Dont forget to change the var {{ proxmox_type }} to either container or kvm
+- My changes are present on branch main
