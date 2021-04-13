@@ -1,0 +1,6 @@
+---
+- name: provision container on proxmox host
+  hosts: proxmox01
+  connection: local
+  roles:
+    - proxmox
