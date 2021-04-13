@@ -1,0 +1,5 @@
+---
+- name: install packages on container Proxmox
+  hosts: container
+  roles:
+    - bind_dhcp

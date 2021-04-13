@@ -26,4 +26,4 @@
     api_user: "{{ proxmox_api_user }}"
     api_password: "{{ proxmox_api_password }}"
     api_host: "{{ proxmox_host }}"
-  notify: upgrade all packages to latest
+#  notify: upgrade all packages to latest
