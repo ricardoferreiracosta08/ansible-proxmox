@@ -19,7 +19,7 @@
     cpus: "{{ proxmox_cpus }}"
     netif: '{"net0":"name=eth0,hwaddr={{ proxmox_hwaddr }},ip={{ proxmox_ip }}/{{ proxmox_ip_mask }},gw={{ proxmox_network_gateway }},bridge={{ proxmox_network_bridge }},tag={{ proxmox_bridge_tag }}"}'
     mounts: "{{ proxmox_secondary_mounts|default('{}') }}"
-    #pubkey: "{{ proxmox_authorized_keys_root }}"
+    pubkey: "{{ proxmox_authorized_keys_root }}"
     timeout: 180
  # notify:
  #   - enable and install sshd

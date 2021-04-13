@@ -16,7 +16,7 @@
  proxmox_api_password: ansible
 
 # REQUIRED: define numeric ID
- proxmox_vmid: 124
+ proxmox_vmid: "124"
 
 # REQUIRED: IP to use for proxmox VM/CT
  proxmox_ip: 172.18.60.140
@@ -30,7 +30,7 @@
  proxmox_vm_iso: local:iso/ubuntu-20.04.2-live-server-amd64.iso 
 
 # REQUIRED: The authorized keys to add for the root user.
-# proxmox_authorized_keys_root:
+ proxmox_authorized_keys_root: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDWHPsprntbVVSOkakF2qMift9R+oRRxwEKeaR8mlr/Xt+cevikVpov3Q10h17xzje6+IDW8kZHsWbqBUnMHacEcRxY9avA1FO89yfDWI1QUeltdHRy0ou3+9Q0KgQUkI1rBr+M1npJPVEddv2Y6YctwFdpc+e3j3MrFvfWt5bb6lCPKq7JrX+sJhcWE7xk5A+6+RUPZtOo8a/6Q7giW6hVhX5G44IuL0CsuxB0Z9tzK7VP9f2lft2N/c3NNSDOBOuXFikCC3wnt8mTwy2HzDC3wxme6CMrlVe33MQx4mYuWl/02vWa364FnTSF7LGva0qs6S1WWB+RuIQEAthXs1VD PROXMOX"
 
 # REQUIRED: The password to set for the root user.
  proxmox_password_root: ricardo
