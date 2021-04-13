@@ -3,31 +3,36 @@
 # REQUIRED Settings -------------------------------------------------------------------------------
 
 # REQUIRED: hostname running
-# proxmox_host:
+ proxmox_host: pve
+ proxmox_node: pve
+ proxmox_ct_name: BIND
+ proxmox_vm_name: ANSIBLE
 
 # REQUIRED: API user for connecting to host
-# proxmox_api_user:
+ proxmox_api_user: ansible@pve
 
 # REQUIRED: password of API user
-# proxmox_api_password:
+ proxmox_api_password: zabbix
 
 # REQUIRED: define numeric ID
-# proxmox_vmid: 123
+ proxmox_vmid: 123
 
 # REQUIRED: IP to use for proxmox VM/CT
-# proxmox_ip:
+ proxmox_ip: 172.18.60.40
+ proxmox_ip_mask: 24
 
 # REQUIRED: gateway to use for VM/CT setup
-# proxmox_network_gateway:
+ proxmox_network_gateway: 172.18.60.1
 
 # REQUIRED: template to use for provisioning
-# proxmox_ostemplate:
+ proxmox_ostemplate: local:vztmpl/ubuntu-18.04-standard_18.04.1-1_amd64.tar.gz
+ proxmox_vm_iso: local:iso/ubuntu-20.04.2-live-server-amd64.iso 
 
 # REQUIRED: The authorized keys to add for the root user.
 # proxmox_authorized_keys_root:
 
 # REQUIRED: The password to set for the root user.
-# proxmox_password_root:
+ proxmox_password_root: ricardo
 
 # Important Settings (you might want to override these) -------------------------------------------
 
@@ -35,13 +40,15 @@
 proxmox_memory: 2048
 
 # Disk space/quota in GB.
-proxmox_disk: "64"
+proxmox_disk: "4"
+proxmox_vm_disk: "15"
 
 # Cores to allocate.
 proxmox_cores: 1
 
 # CPUs to allocate.
 proxmox_cpus: 1
+proxmox_sockets: 2
 
 # Whether or not to allow for running Docker inside container (requires priviledged container
 # if CT).
@@ -56,7 +63,7 @@ proxmox_container_custom_script: ""
 proxmox_hwaddr: "{{ '52:54:00' | random_mac }}"
 
 # Storage system to use
-proxmox_storage: local-zfs
+proxmox_storage: ceph
 
 # Whether to start CT/VM on host boot.
 proxmox_onboot: true
@@ -66,6 +73,8 @@ proxmox_secondary_mounts: {}
 
 # The bridge to use for containers.
 proxmox_network_bridge: vmbr0
+proxmox_bridge_tag: 60
+proxmox_vm_network_model: virtio
 
 # How long to sleep before first pct exec command.
 proxmox_container_sleep: 60s
