@@ -1,6 +1,7 @@
 ---
 - name: provision container on proxmox host
   hosts: proxmox01
+  # this playbook run Proxmox API, not a ssh service
   connection: local
   roles:
     - proxmox
