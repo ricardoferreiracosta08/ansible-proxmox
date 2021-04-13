@@ -1,6 +1,6 @@
 # ansible-proxmox
 
-**About:** this repo is a forked and you can run on Proxmox Cluster:
+**About:** this repo is a forked and you can run it to manage instances on Proxmox Cluster:
 
 - create VM instance from the storage that stores the iso file
 - create Container LXC from the template downloaded previously
