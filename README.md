@@ -4,6 +4,7 @@
 
 - create VM instance from the storage that stores the iso file
 - create Container LXC from the template downloaded previously
+- run task "install package" on container LXC created
 
 On Proxmox, to list sotarege content
 
@@ -32,7 +33,7 @@ pip3 instlal requests
 
 ```bash
 mkdir -p /etc/ansible/roles/proxmox
-cp -r handlers/ tasks/ defaults/ /etc/ansible/roles/proxmox/
+cp -r roles/proxmox/* /etc/ansible/roles/proxmox
 ```
 
 4 - The end, adjust your inventory and run the playbook
@@ -40,6 +41,21 @@ cp -r handlers/ tasks/ defaults/ /etc/ansible/roles/proxmox/
 ```bash
 ansible-playbook -i inventory play.yml
 ```
+
+In other hand, to run task "install package" on container created:
+
+1 - Create new role
+
+```bash
+cp -r roles/dhcp/* /etc/ansible/roles/bind_dhcp
+```
+
+2 - Add IP container on Inventory file and run playbook
+
+```bash
+echo -e "[container]\n172.18.60.140" >> inventory
+ansible-playbook -i inventory play.yml
+``` 
 
 # NOTES
 
