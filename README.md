@@ -1,5 +1,18 @@
 # ansible-proxmox
 
+**About:** this repo is a forked and you can run on Proxmox Cluster:
+
+- create VM instance from the storage that stores the iso file
+- create Container LXC from the template downloaded previously
+
+On Proxmox, to list sotarege content
+
+```bash
+pvesm list STORAGE-NAME
+```
+
+# Step-by-step
+
 1 - Clone this repository
 
 2 - On Proxmox, create role Admin for new user
@@ -27,3 +40,8 @@ cp -r handlers/ tasks/ defaults/ /etc/ansible/roles/proxmox/
 ```bash
 ansible-playbook -i inventory play.yml
 ```
+
+# NOTES
+
+- Change the vars on defaults/main.yml according to your environment 
+- dont forget to change the var {{ proxmox_type }} to either container or kvm
