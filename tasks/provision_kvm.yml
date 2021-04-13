@@ -5,7 +5,7 @@
     api_user: "{{ proxmox_api_user }}"
     api_password: "{{ proxmox_api_password }}"
     api_host: "{{ proxmox_host }}"
-    name: "{{ inventory_hostname }}"
+    name: "{{ proxmox_vm_name }}"
     net: '{"net0":"{{ proxmox_vm_network_model }},bridge={{ proxmox_network_bridge }},tag={{ proxmox_bridge_tag }}"}'
     #net: "{{ proxmox_network }}"
     storage: "{{ proxmox_storage }}"
@@ -14,7 +14,7 @@
     sockets: "{{ proxmox_sockets }}"
     memory: "{{ proxmox_memory }}"
     scsihw: virtio-scsi-pci
-    ide: '{"ide0":"{{ proxmox_vm_iso }},media=cdrom",size=11}'
+    ide: '{"ide0":"{{ proxmox_vm_iso }},media=cdrom,size=1186688K"}'
     scsi: >
         {"virtio0":"{{ proxmox_storage }}:{{ proxmox_disk_size }},iothread=1"}
     state: present

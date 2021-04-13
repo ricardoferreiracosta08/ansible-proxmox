@@ -7,18 +7,19 @@
  proxmox_node: pve
  proxmox_ct_name: BIND
  proxmox_vm_name: ANSIBLE
+ proxmox_autostart: no
 
 # REQUIRED: API user for connecting to host
  proxmox_api_user: ansible@pve
 
 # REQUIRED: password of API user
- proxmox_api_password: zabbix
+ proxmox_api_password: ansible
 
 # REQUIRED: define numeric ID
- proxmox_vmid: 123
+ proxmox_vmid: 124
 
 # REQUIRED: IP to use for proxmox VM/CT
- proxmox_ip: 172.18.60.40
+ proxmox_ip: 172.18.60.140
  proxmox_ip_mask: 24
 
 # REQUIRED: gateway to use for VM/CT setup
@@ -35,46 +36,47 @@
  proxmox_password_root: ricardo
 
 # Important Settings (you might want to override these) -------------------------------------------
+ proxmox_type: container
 
 # Main memory in MB.
-proxmox_memory: 2048
+ proxmox_memory: 2048
 
 # Disk space/quota in GB.
-proxmox_disk: "4"
-proxmox_vm_disk: "15"
+ proxmox_disk: "4"
+ proxmox_disk_size: "15"
 
 # Cores to allocate.
-proxmox_cores: 1
+ proxmox_cores: 1
 
 # CPUs to allocate.
-proxmox_cpus: 1
-proxmox_sockets: 2
+ proxmox_cpus: 1
+ proxmox_sockets: 2
 
 # Whether or not to allow for running Docker inside container (requires priviledged container
 # if CT).
-proxmox_enable_docker: false
+ proxmox_enable_docker: false
 
 # Custom bash script to execute in container, e.g., for proxy setup.
-proxmox_container_custom_script: ""
+ proxmox_container_custom_script: ""
 
 # Other Settings (the defaults are sensible for most cases) ---------------------------------------
 
 # MAC address of proxmox network.
-proxmox_hwaddr: "{{ '52:54:00' | random_mac }}"
+ proxmox_hwaddr: "{{ '52:54:00' | random_mac }}"
 
 # Storage system to use
-proxmox_storage: ceph
+ proxmox_storage: ceph
 
 # Whether to start CT/VM on host boot.
-proxmox_onboot: true
+ proxmox_onboot: true
 
 # Any secondary mounts.
-proxmox_secondary_mounts: {}
+ proxmox_secondary_mounts: {}
 
 # The bridge to use for containers.
-proxmox_network_bridge: vmbr0
-proxmox_bridge_tag: 60
-proxmox_vm_network_model: virtio
+ proxmox_network_bridge: vmbr0
+ proxmox_bridge_tag: 60
+ proxmox_vm_network_model: virtio
 
 # How long to sleep before first pct exec command.
-proxmox_container_sleep: 60s
+ proxmox_container_sleep: 60s
