@@ -21,6 +21,6 @@ block_acl_bind:
 block_options_bind:
       'recursion yes;      
        allow-recursion { trusted; };
-       listen-on { 172.16.50.200; };
+       listen-on { 172.18.60.140; };
        allow-transfer { none; };'
       
