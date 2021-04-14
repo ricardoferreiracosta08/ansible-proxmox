@@ -1,5 +1,26 @@
 ---
 
+ansible_user: root
+ansible_ssh_private_key_file: "/root/.ssh/idrsa.PROXMOX"
+
 packages:
   - "bind9"
+  - "bind9utils"
+  - "bind9-doc"
   - "isc-dhcp-server"
+
+block_acl_bind: 
+     'acl "trusted" {
+        localhost;
+        192.168.30.0/24; 
+        192.168.40.0/24; 
+        192.168.50.0/24; 
+        172.18.60.0/24;  
+     };'
+
+block_options_bind:
+      'recursion yes;      
+       allow-recursion { trusted; };
+       listen-on { 172.16.50.200; };
+       allow-transfer { none; };'
+      

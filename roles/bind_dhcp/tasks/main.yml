@@ -1,6 +1,31 @@
 ---
+- name: Update Repo and cache
+  apt: 
+    update_cache: yes 
+    cache_valid_time: 3600
+
 - name: Install packages
   apt: 
     name: "{{ packages }}"
     state: latest
+
+- name: Insert block ACL Bind configuration in /etc/bind/named.conf.options
+  blockinfile:
+    path: /etc/bind/named.conf.options
+    insertbefore: BOF                      # >>>>> Before Of File
+    marker: "{mark} ANSIBLE MANAGED BLOCK"
+    marker_begin: '\n# BEGIN' 
+    marker_end: '# END'
+    block: |
+      {{ block_acl_bind }}
+
+- name: Insert block Options Bind configuration in /etc/bind/named.conf.options
+  blockinfile:
+    path: /etc/bind/named.conf.options
+    insertafter: 'options {'
+    marker: "{mark} ANSIBLE MANAGED BLOCK"
+    marker_begin: '\n# BEGIN'
+    marker_end: '# END'
+    block: |
+      {{ block_options_bind }}
 
