@@ -29,3 +29,10 @@
     block: |
       {{ block_options_bind }}
 
+- name: Named checkconf
+  command: named-checkconf /etc/bind/named.conf.options
+
+- name: Restart service bind9
+  service:
+    name: bind9
+    state: restarted
